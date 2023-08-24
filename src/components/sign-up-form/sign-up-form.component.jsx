@@ -4,6 +4,8 @@ import {
     createUserDocumentFromAuth
 } from "../../utils/firebase/firebase.utils";
 
+import FormInput from "../form-input/form-input.component";
+
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -50,35 +52,51 @@ const SignUpForm = () => {
         <div>
             <h1>Sign Up</h1>
             <form onSubmit={ submitHandler }>
-                <label>Name</label>
-                <input 
-                    required type="text" 
-                    name="displayName" 
-                    onChange={changeHandler} 
-                    value={displayName}/>
+                <FormInput
+                    label='Display Name'
+                    inputOptions={{
+                        required:true,
+                        type:"text", 
+                        name:"displayName", 
+                        onChange:changeHandler,
+                        value:displayName
+                    }} 
+                    />
 
-                <label>Email</label>
-                <input 
-                    required type="email" 
-                    name="email" 
-                    onChange={changeHandler} 
-                    value={email}/>
+                <FormInput
+                    label='Email' 
+                    inputOptions={{
+                        required: true,
+                        type:"email",
+                        name:"email",
+                        onChange:changeHandler,
+                        value:email
+                    }}
+                    />
 
-                <label>Password</label>
-                <input 
-                    required type="password" 
-                    name="password" 
-                    minLength={6}
-                    onChange={changeHandler} 
-                    value={password}/>
+                <FormInput
+                    label='Password'
+                    inputOptions={{
+                        required: true,
+                        type:"password",
+                        name:"password",
+                        minLength:6,
+                        onChange:changeHandler,
+                        value:password
+                    }} 
+                    />
 
-                <label>Confirm Password</label>
-                <input 
-                    required type="password" 
-                    name="confirmPassword" 
-                    minLength={6}
-                    onChange={changeHandler} 
-                    value={confirmPassword}/>
+                <FormInput
+                    label='Confirm Password' 
+                    inputOptions={{
+                        required:true,
+                        type:"password",
+                        name:"confirmPassword",
+                        minLength:6,
+                        onChange:changeHandler,
+                        value:confirmPassword
+                    }}
+                    />
 
                 <button type="submit">Sign Up</button>
             </form>
