@@ -26,13 +26,11 @@ const SignInForm = () => {
             resetFormFields();
         }
         catch(error) {
-            if (error.code === 'auth/user-not-found') {
-                alert('Cannot sign in, user not found');
+            switch(error ){
+                case 'auth/user-not-found': alert('Cannot sign in, user not found'); break;
+                case 'auth/wrong-password': alert('Cannot sign in, incorrect credentials'); break;
+                default: console.log('User creation encountered an error', error);
             }
-            else if (error.code === 'auth/wrong-password') {
-                alert('Cannot sign in, incorrect credentials')
-            }
-            console.log('User creation encountered an error', error);
         }
     }
 
@@ -80,7 +78,7 @@ const SignInForm = () => {
             
             <div className="buttons-container">
                 <Button type='submit'>Sign In</Button>
-                <Button onClick={logGoogleUser} buttonType={ 'google' }>Google Sign In</Button>
+                <Button type='button' onClick={logGoogleUser} buttonType={ 'google' }>Google Sign In</Button>
             </div>
         </form>
       </div>  
