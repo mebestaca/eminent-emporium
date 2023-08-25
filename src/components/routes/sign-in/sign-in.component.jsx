@@ -1,5 +1,6 @@
 // import { createUserDocumentFromAuth, signInWithGooglePopUp } from "../../../utils/firebase/firebase.utils";
 import SignUpForm from "../../sign-up-form/sign-up-form.component";
+import SignInForm from "../../sign-in-form/sign-in-form.component";
 
 const SignIn = () => {
     /*
@@ -10,7 +11,10 @@ const SignIn = () => {
     */
 
     return (
-        <SignUpForm/>
+        <div>
+            <SignInForm />
+            <SignUpForm/>
+        </div>
     );
 }
 
