@@ -6,9 +6,15 @@ import { signOutUser } from "../../../utils/firebase/firebase.utils";
 import CartIcon from "../../cart-icon/cart-icon.component";
 import './navigation.style.scss';
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component";
+import { CartDropdownContext } from "../../../contexts/cart-dropdown.context";
 
 const Navigation = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { dropdownState, toggleDropdown} = useContext(CartDropdownContext);
+
+    const dropdownToggler = (event) => {
+        toggleDropdown(!dropdownState);
+    }
 
     const signOutHandler = async () => {
         await signOutUser();
@@ -35,9 +41,11 @@ const Navigation = () => {
                             Sign In
                         </Link>)
                     }
-                    <CartIcon/>
+                    <CartIcon onClick={dropdownToggler}/>
                 </div>
-                <CartDropdown/>
+                {
+                    dropdownState ? <CartDropdown/> : null
+                }
             </div>
             <Outlet/>
         </Fragment>
