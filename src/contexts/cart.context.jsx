@@ -22,9 +22,7 @@ const addCartItem = (cartItems, productToAdd) => {
 export const CartContextProvider = ({ children }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState([]);
-    const addItemToCart = (productToAdd) => {
-        setCartItems(addCartItem(cartItems, productToAdd));
-    }
+    const addItemToCart = (productToAdd) => setCartItems(addCartItem(cartItems, productToAdd));
     const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems }
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
