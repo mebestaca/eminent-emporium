@@ -24,40 +24,23 @@ const addCartItem = (cartItems, productToAdd) => {
     return [...cartItems, {...productToAdd, quantity: 1 }];
 }
 
-const removeCartItem = (cartItems, productToRemove) => {
-    const productExist = cartItems.find((cartItem) => cartItem.id === productToRemove.id);
-    if (productExist) {
-        return cartItems.filter((cartItem)=> 
-            cartItem.id !== productToRemove.id
-        );
-    }
-    return cartItems;
-}
+const removeCartItem = (cartItems, productToRemove) => cartItems.filter((cartItem)=> cartItem.id !== productToRemove.id);
 
-const increaseCartItem = (cartItems, productToIncrease) => {
-    const productExist = cartItems.find((cartItem) => cartItem.id === productToIncrease.id);
-    if (productExist) {
-        return cartItems.map((cartItem)=> 
-            (cartItem.id === productToIncrease.id) ? 
-            { ...cartItem, quantity: cartItem.quantity + 1 } :
-            cartItem
-        );
-    }
-    return cartItems;
-}
+const increaseCartItem = (cartItems, productToIncrease) =>  
+    cartItems.map((cartItem)=> (
+        cartItem.id === productToIncrease.id) ? 
+        { ...cartItem, quantity: cartItem.quantity + 1 } :
+        cartItem
+    );
 
-const decreaseCartItem = (cartItems, productToDecrease) => {
-    const productExist = cartItems.find((cartItem) => cartItem.id === productToDecrease.id);
-    if (productExist) {
-        return cartItems.map((cartItem)=> 
-            (cartItem.id === productToDecrease.id) ? 
-            { ...cartItem, quantity: cartItem.quantity > 1 ? cartItem.quantity - 1 : cartItem.quantity } :
-            cartItem
-        );
-    }
-    return cartItems;
-}
 
+const decreaseCartItem = (cartItems, productToDecrease) => 
+    cartItems.map((cartItem)=> 
+        (cartItem.id === productToDecrease.id) ? 
+        { ...cartItem, quantity: cartItem.quantity > 1 ? cartItem.quantity - 1 : cartItem.quantity } :
+        cartItem
+    );
+    
 export const CartContextProvider = ({ children }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState([]);

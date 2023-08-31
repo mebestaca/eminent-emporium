@@ -1,28 +1,36 @@
-import { Fragment, useContext } from 'react';
-import CheckoutCard from '../checkout-card/checkout-card.component';
+import { useContext } from 'react';
+import CheckoutItem from '../checkout-item/checkout-item.component';
 import { CartContext } from '../../contexts/cart.context';
 import './checkout.style.scss';
 
 const Checkout = () => {
     const { cartItems, priceTotal } = useContext(CartContext);
     return (
-        <Fragment>
-            <div className='checkout-headers'>
-                <span>Product</span>
-                <span>Description</span>
-                <span>Quantity</span>
-                <span>Price</span>
-                <span>Remove</span>
+        <div className='checkout-container'>
+            <div className='checkout-header'>
+                <div className='header-block'>
+                    <span>Product</span>
+                </div>
+                <div className='header-block'>
+                    <span>Description</span>
+                </div>
+                <div className='header-block'>
+                    <span>Quantity</span>
+                </div>
+                <div className='header-block'>
+                    <span>Price</span>
+                </div>
+                <div className='header-block'>
+                    <span>Remove</span>
+                </div>
             </div>
-            <div className='checkout-items-cards'>
-                {
-                    cartItems.map((cartItem)=> 
-                        <CheckoutCard key={cartItem.id} cartItem={cartItem} />
-                    )
-                }
-            </div>
-            <div>${ priceTotal }</div>
-        </Fragment>
+            {
+                cartItems.map((cartItem)=> 
+                    <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                )
+            }
+            <div className='total'>Total: ${ priceTotal }</div>
+        </div>
     );
 }
 
