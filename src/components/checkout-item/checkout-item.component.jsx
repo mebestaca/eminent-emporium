@@ -5,6 +5,7 @@ import './checkout-item.style.scss';
 const CheckoutItem = ({ cartItem }) => {
     const { name, price, quantity, imageUrl } = cartItem;
     const { removeItemFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+    
     const onRemoveHandler = () => removeItemFromCart(cartItem);
     const onIncrementHandler = () => increaseQuantity(cartItem);
     const onDecrementHandler = () => decreaseQuantity(cartItem);

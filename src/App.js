@@ -5,7 +5,6 @@ import Shop from "./components/shop/shop.component";
 import Checkout from "./components/checkout/checkout.component";
 import { Route, Routes } from "react-router-dom";
 
-
 const App = () => {
   return (
     <Routes>
