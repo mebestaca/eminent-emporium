@@ -1,23 +1,24 @@
-import './category-preview.style.scss';
+import { CategoryPreviewContainer, Title, Preview } from './category-preview.style';
 import ProductCard from '../product-card/product-card.component';
-import { Link } from 'react-router-dom';
 
 const CategoryPreview = ({title,products}) => {
     const max_previewed_item = 4;
     return (
-        <div className='category-preview-container'>
+        <CategoryPreviewContainer>
             <h2>
-                <Link className='title' to={title}>{title.toUpperCase()}</Link>
+                <Title to={title}>
+                    {title.toUpperCase()}
+                </Title>
             </h2>
-            <div className='preview'>
+            <Preview>
                 {
                     products
                         .filter((_,index) => index < max_previewed_item)
                         .map((product) =>
-                        <ProductCard key={product.id} product={product} />)
+                            <ProductCard key={product.id} product={product} />)
                 }
-            </div>
-        </div>
+            </Preview>
+        </CategoryPreviewContainer>
     );
 }
 
