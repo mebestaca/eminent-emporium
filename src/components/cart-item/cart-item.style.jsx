@@ -19,7 +19,7 @@ export const ItemDetailContainer = styled.div`
     justify-content: center; 
     padding: 10px 20px; 
     
-    .name { 
+    span { 
         font-size: 16px; 
     } 
 `;
