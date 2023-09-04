@@ -1,36 +1,38 @@
+import { 
+    CheckoutContainer, 
+    CheckoutHeader, 
+    CheckoutHeaderBlock, 
+    Total 
+} from './checkout.style';
 import { useContext } from 'react';
-import CheckoutItem from '../checkout-item/checkout-item.component';
 import { CartContext } from '../../contexts/cart.context';
-import './checkout.style.scss';
+import CheckoutItem from '../checkout-item/checkout-item.component';
+
 
 const Checkout = () => {
     const { cartItems, priceTotal } = useContext(CartContext);
     return (
-        <div className='checkout-container'>
-            <div className='checkout-header'>
-                <div className='header-block'>
+        <CheckoutContainer>
+            <CheckoutHeader>
+                <CheckoutHeaderBlock>
                     <span>Product</span>
-                </div>
-                <div className='header-block'>
+                </CheckoutHeaderBlock>
+                <CheckoutHeaderBlock>
                     <span>Description</span>
-                </div>
-                <div className='header-block'>
+                </CheckoutHeaderBlock>
+                <CheckoutHeaderBlock>
                     <span>Quantity</span>
-                </div>
-                <div className='header-block'>
+                </CheckoutHeaderBlock>
+                <CheckoutHeaderBlock>
                     <span>Price</span>
-                </div>
-                <div className='header-block'>
+                </CheckoutHeaderBlock>
+                <CheckoutHeaderBlock>
                     <span>Remove</span>
-                </div>
-            </div>
-            {
-                cartItems.map((cartItem)=> 
-                    <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                )
-            }
-            <div className='total'>Total: ${ priceTotal }</div>
-        </div>
+                </CheckoutHeaderBlock>
+            </CheckoutHeader>
+            { cartItems.map((cartItem)=> <CheckoutItem key={cartItem.id} cartItem={cartItem} />) }
+            <Total>Total: ${ priceTotal }</Total>
+        </CheckoutContainer>
     );
 }
 
