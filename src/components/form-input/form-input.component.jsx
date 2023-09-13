@@ -4,7 +4,7 @@ const FormInput = ({label, inputOptions}) => {
     return (
         <Group>
             <Input { ...inputOptions } />
-            <FormInputLabel shrink={inputOptions.value.length}>
+            <FormInputLabel src={inputOptions.value.length}>
                 { label }
             </FormInputLabel>
         </Group>

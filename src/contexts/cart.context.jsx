@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
 
 export const CART_ACTION_TYPES = {
     UPDATE_CART_ITEMS: 'UPDATE_CART_ITEMS',
@@ -84,15 +85,16 @@ export const CartProvider = ({ children }) => {
     const updateCartItemReducer = (newCartItems) => {
         const cartTotalQuantity = cartItems.reduce((total, cartItem)=>  total + cartItem.quantity, 0);
         const cartTotalPrice = cartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0);
-        dispatch({ 
-            type: CART_ACTION_TYPES.UPDATE_CART_ITEMS, 
-            payload: {  
-                cartItems: newCartItems,
-                cartCount: cartTotalQuantity,
-                priceTotal: cartTotalPrice,
-            } 
-        
-        });
+        dispatch(
+            createAction(
+                CART_ACTION_TYPES.UPDATE_CART_ITEMS, 
+                {  
+                    cartItems: newCartItems,
+                    cartCount: cartTotalQuantity,
+                    priceTotal: cartTotalPrice,
+                } 
+            )
+        );
     }
 
     const addItemToCart = (productToAdd) => {
@@ -116,7 +118,7 @@ export const CartProvider = ({ children }) => {
     }
 
     const toggleCartCard = (toggle) =>{
-        dispatch({type: CART_ACTION_TYPES.TOGGLE_CART_CARD, payload: toggle});
+        dispatch(createAction(CART_ACTION_TYPES.TOGGLE_CART_CARD, toggle));
     }
 
     const value = { 
