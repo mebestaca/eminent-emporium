@@ -55,7 +55,6 @@ const increaseCartItem = (cartItems, productToIncrease) =>
         cartItem
     );
 
-
 const decreaseCartItem = (cartItems, productToDecrease) => 
     cartItems.map((cartItem)=> 
         (cartItem.id === productToDecrease.id) ? 
