@@ -1,3 +1,3 @@
 export const CATEGORY_ACTION_TYPE = {
-    SET_CATEGORY_MAP: 'category/SET_CATEGORY_MAP',
+    SET_CATEGORY: 'category/SET_CATEGORY',
 }
