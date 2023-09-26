@@ -1,9 +1,10 @@
-import { SpinnerContainer, SpinnerOverlay } from "./spinner.style"
+import { SpinnerContainer, SpinnerOverlay } from "./spinner.style";
 
-const Spinner = () => {
-    <SpinnerContainer>
-        <SpinnerOverlay/>
-    </SpinnerContainer>
-}
+const Spinner = () => (
+    <SpinnerOverlay>
+        <SpinnerContainer/>
+    </SpinnerOverlay>
+)
+
 
 export default Spinner;
