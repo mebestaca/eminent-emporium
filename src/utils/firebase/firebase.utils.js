@@ -9,7 +9,6 @@ import {
     createUserWithEmailAndPassword,
     GoogleAuthProvider
 } from 'firebase/auth';
-
 import {
     getFirestore,
     doc,
