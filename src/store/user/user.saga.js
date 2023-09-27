@@ -1,7 +1,20 @@
 import { call, all, put, takeLatest } from 'redux-saga/effects';
 import { USER_ACTION_TYPES } from './user.types';
-import { signInFailure, signInSuccess } from './user.action';
-import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopUp, signInEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import { 
+    signInFailure, 
+    signInSuccess, 
+    signOutFailure, 
+    signOutSuccess, 
+    signUpFailure, 
+    signUpSuccess} from './user.action';
+import { 
+    getCurrentUser, 
+    createUserDocumentFromAuth, 
+    createUserAuthWithEmailAndPassword,
+    signInWithGooglePopUp, 
+    signInEmailAndPassword,
+    signOutUser
+} from '../../utils/firebase/firebase.utils';
 
 //#region dispatches singInSuccess
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
@@ -15,7 +28,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
 }
 //#endregion
 
-//#region googleSignIn
+//#region signInWithGoogle
 export function* signInWithGoogle() {
     try{
         const { user } = yield call(signInWithGooglePopUp);
@@ -34,14 +47,14 @@ export function* onGoogleSignIn() {
 }
 //#endregion
 
-//#region 
+//#region signInWithEmail
 export function* signInWithEmail({ payload: { email, password } }) {
     try {
         const { user } = yield call(signInEmailAndPassword, email, password);
         yield call(getSnapshotFromUserAuth, user);
     }
     catch(error) {
-
+        yield put(signInFailure(error));
     }
 }
 
@@ -52,6 +65,56 @@ export function* onEmailSignIn() {
     );
 }
 //#endregion
+
+//#region sign up stage 1
+export function* signUp({ payload: { email, password, displayName } }) {
+    try {
+        const { user } = yield call(createUserAuthWithEmailAndPassword, email, password);
+        yield put(signUpSuccess, user, { displayName });
+    }
+    catch(error) {
+        yield put(signUpFailure(error));
+    }
+}
+
+export function* onSignUpStart() {
+    yield takeLatest(
+        USER_ACTION_TYPES.SIGN_UP_START,
+        signUp
+    );
+}
+//#endregion
+
+//#region signup stage 2
+export function* signUpAfterSuccess({ payload: { user, additionalDetails } }) {
+    yield call(getSnapshotFromUserAuth, user, additionalDetails)
+}
+
+export function* onSignUpSuccess() {
+    yield takeLatest(
+        USER_ACTION_TYPES.SIGN_IN_SUCCESS,
+        signUpAfterSuccess
+    );
+}
+//#endregion
+
+export function* signOut() {
+    try {
+        yield call(signOutUser);
+        yield put(signOutSuccess());
+    }
+    catch(error) {
+        yield put(signOutFailure(error));
+    }
+    
+}
+
+export function* onSignOutStart() {
+    yield takeLatest(
+        USER_ACTION_TYPES.SIGN_OUT_START,
+        signOut
+    );
+}
 
 //#region checkuser entry point
 export function* isUserAuthenticated() {
@@ -79,6 +142,9 @@ export function* userSaga() {
         call(onCheckUserSession),
         call(onGoogleSignIn),
         call(onEmailSignIn),
+        call(onSignUpStart),
+        call(onSignUpSuccess),
+        call(onSignOutStart),
     ]);
 }
 //#endregion
