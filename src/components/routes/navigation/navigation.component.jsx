@@ -17,7 +17,6 @@ import { selectCurrentUser } from '../../../store/toolkit/user/user.selector.js'
 const Navigation = () => {
     // const dispatch = useDispatch();
     const currentUser = useSelector(selectCurrentUser);
-    console.log('current user', currentUser);
     const isCartOpen = useSelector(selectCartIsOpen);
     
     const signOutHandler = async () => {
