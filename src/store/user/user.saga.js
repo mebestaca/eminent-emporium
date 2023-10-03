@@ -87,8 +87,6 @@ export function* onSignUpStart() {
 
 //#region signup stage 2
 export function* signUpAfterSuccess({ payload: { user, additionalInfo } }) {
-    console.log('display name', additionalInfo);
-    console.log('user', user);
     yield call(getSnapshotFromUserAuth, user, additionalInfo);
 }
 
