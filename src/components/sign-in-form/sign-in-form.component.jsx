@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { signInEmailAndPassword, signInWithGooglePopUp} from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { SignInContainer, ButtonsContainer } from "./sign-in-form.style";
@@ -21,7 +20,6 @@ const SignInForm = () => {
 
         try {
             dispatch(emailSignInStart(email, password));
-            // await signInEmailAndPassword(email, password);
             resetFormFields();
         }
         catch(error) {
@@ -34,7 +32,6 @@ const SignInForm = () => {
     }
 
     const logGoogleUser = async () => {
-        // await signInWithGooglePopUp();
         dispatch(googleSignInStart());
     }
 
