@@ -3,15 +3,10 @@ import { ReactComponent as AppLogo } from '../../../assets/crown.svg';
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from 'react-redux';
-// import { signOutUser } from "../../../utils/firebase/firebase.utils";
 import CartIcon from "../../cart-icon/cart-icon.component";
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component";
-// import { setCurrentUser } from '../../../store/toolkit/user/user.reducer.js';
-// import { selectCurrentUser } from '../../../store/toolkit/user/user.selector.js';
-// import { selectIsCartOpen } from '../../../store/toolkit/cart/cart.selector.js';
 import { selectCartIsOpen } from '../../../store/cart/cart.selector.js';
 import { selectCurrentUser } from '../../../store/user/user.selector.js';
-// import { setCurrentUser } from '../../../store/user/user.action.js';
 import { useDispatch } from 'react-redux';
 import { signOutStart } from '../../../store/user/user.action.js';
 
@@ -21,8 +16,6 @@ const Navigation = () => {
     const isCartOpen = useSelector(selectCartIsOpen);
     
     const signOutHandler = async () => {
-        // await signOutUser();
-        // setCurrentUser(null);
         dispatch(signOutStart());
     }
 
