@@ -70,7 +70,7 @@ export function* onEmailSignIn() {
 export function* signUp({ payload: { email, password, displayName } }) {
     try {
         const { user } = yield call(createUserAuthWithEmailAndPassword, email, password);
-        yield put(signUpSuccess, user, { displayName });
+        yield put(signUpSuccess(user, { displayName }));
     }
     catch(error) {
         yield put(signUpFailure(error));
@@ -86,13 +86,13 @@ export function* onSignUpStart() {
 //#endregion
 
 //#region signup stage 2
-export function* signUpAfterSuccess({ payload: { user, additionalDetails } }) {
-    yield call(getSnapshotFromUserAuth, user, additionalDetails)
+export function* signUpAfterSuccess({ payload: { user, additionalInfo } }) {
+    yield call(getSnapshotFromUserAuth, user, additionalInfo);
 }
 
 export function* onSignUpSuccess() {
     yield takeLatest(
-        USER_ACTION_TYPES.SIGN_IN_SUCCESS,
+        USER_ACTION_TYPES.SIGN_UP_SUCCESS,
         signUpAfterSuccess
     );
 }
