@@ -3,7 +3,6 @@ import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { CategoryContainer, CategoryTitle } from "./category.style";
 import ProductCard from "../../product-card/product-card.component";
-// import { selectCategoriesMap } from "../../../store/toolkit/category/category.selector";
 import { selectCategoryMap, selectCategoryIsLoading } from "../../../store/category/category.selector";
 import Spinner from '../../spinner/spinner.component';
 
