@@ -9,19 +9,18 @@ import {
 } from "./checkout-item.style";
 import { 
     useDispatch, 
-    // useSelector 
+    useSelector 
 } from "react-redux";
-// import { selectCartItems } from "../../store/toolkit/cart/cart.selector";
-import { setRemoveCartItem, setIncreaseCartItem, setDecreaseCartItem } from "../../store/toolkit/cart/cart.reducer";
-// import { removeItemFromCart, increaseQuantity, decreaseQuantity } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
+import { removeItemFromCart, increaseQuantity, decreaseQuantity } from "../../store/cart/cart.action";
 
 const CheckoutItem = ({ cartItem }) => {
     const dispatch = useDispatch();
-    // const cartItems = useSelector(selectCartItems);
+    const cartItems = useSelector(selectCartItems);
     const { name, price, quantity, imageUrl } = cartItem;
-    const onRemoveHandler = () => dispatch(setRemoveCartItem(cartItem));
-    const onIncrementHandler = () => dispatch(setIncreaseCartItem(cartItem));
-    const onDecrementHandler = () => dispatch(setDecreaseCartItem(cartItem));
+    const onRemoveHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));
+    const onIncrementHandler = () => dispatch(increaseQuantity(cartItems, cartItem));
+    const onDecrementHandler = () => dispatch(decreaseQuantity(cartItems, cartItem));
 
     return (
         <CheckoutItemContainer>
