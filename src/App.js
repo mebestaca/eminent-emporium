@@ -18,7 +18,6 @@ const App = () => {
             createUserDocumentFromAuth(user);
         }
         const pickedUser = user && (({ accessToken, email }) => ({ accessToken, email }))(user);
-        console.log('action', setCurrentUser(pickedUser));
         dispatch(setCurrentUser(pickedUser));
 
     });
