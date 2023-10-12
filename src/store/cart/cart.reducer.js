@@ -28,8 +28,6 @@ export const cartSlice = createSlice({
 });
 
 const addCartItem = (cartItems, productToAdd) => {
-    console.log('current cart items:', cartItems);
-    console.log('product to add:', productToAdd);
     const productExist = cartItems.find((cartItem)=> cartItem.id === productToAdd.id);
     if (productExist) {
         return cartItems.map((cartItem)=> 
