@@ -12,7 +12,6 @@ const defaultFormFields = {
 }
 
 const SignInForm = () => {
-    // const dispatch = useDispatch();
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
@@ -20,7 +19,6 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            // dispatch(emailSignInStart(email, password));
             await signInEmailAndPassword(email, password);
             resetFormFields();
         }
@@ -35,7 +33,6 @@ const SignInForm = () => {
 
     const logGoogleUser = async () => {
         await signInWithGooglePopUp();
-        // dispatch(googleSignInStart());
     }
 
     const resetFormFields = () => {
