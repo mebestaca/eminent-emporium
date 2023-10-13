@@ -6,7 +6,6 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { SignUpContainer } from "./sign-up-form.style";
-import { useDispatch } from "react-redux";
 
 const defaultFormFields = {
     displayName: '',
@@ -16,7 +15,6 @@ const defaultFormFields = {
 }
 
 const SignUpForm = () => {
-    const dispatch = useDispatch();
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword} = formFields;
 
