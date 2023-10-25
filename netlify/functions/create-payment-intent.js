@@ -11,7 +11,7 @@ exports.handler = async (event) => {
             amount,
             currency: "usd",
             payment_method_types: ["card"],
-            // automatic_payment_methods: {enabled: true, allow_redirects: "never"},
+            automatic_payment_methods: {enabled: true, allow_redirects: "never"},
         });
 
         return {
