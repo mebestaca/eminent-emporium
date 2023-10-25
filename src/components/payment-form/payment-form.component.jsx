@@ -21,7 +21,7 @@ const PaymentForm = () => {
         }
         
         setIsProcessingPayment(true);
-
+        console.log("fetching data from netlify function");
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
             headers: {

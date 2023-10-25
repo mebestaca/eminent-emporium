@@ -3,7 +3,7 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
-    console.log('stripe', stripe);
+    console.log("serverless function start");
     try{
         const { amount } = JSON.parse(event.body);
 
