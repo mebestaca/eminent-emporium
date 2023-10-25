@@ -9,11 +9,9 @@ import { selectCartItems, selectCartTotal } from '../../store/cart/cart.selector
 import CheckoutItem from '../checkout-item/checkout-item.component';
 import PaymentForm from '../payment-form/payment-form.component';
 
-
 const Checkout = () => {
     const cartItems = useSelector(selectCartItems);
     const cartTotal = useSelector(selectCartTotal);
-
     return (
         <CheckoutContainer>
             <CheckoutHeader>
@@ -33,7 +31,9 @@ const Checkout = () => {
                     <span>Remove</span>
                 </CheckoutHeaderBlock>
             </CheckoutHeader>
-            { cartItems.map((cartItem)=> <CheckoutItem key={cartItem.id} cartItem={cartItem} />) }
+            { 
+                cartItems.map((cartItem)=> <CheckoutItem key={cartItem.id} cartItem={cartItem} />) 
+            }
             <Total>Total: ${ cartTotal }</Total>
             <PaymentForm/>
         </CheckoutContainer>
