@@ -4,6 +4,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
     console.log("serverless function start");
+    console.log("event", event);
     try{
         const { amount } = JSON.parse(event.body);
 

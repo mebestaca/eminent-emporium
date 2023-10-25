@@ -15,14 +15,14 @@ const PaymentForm = () => {
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
     const paymentHandler = async (e) => {
-        console.log(e);
+
         e.preventDefault();
         if (!stripe || !elements) {
             return;
         }
         
         setIsProcessingPayment(true);
-        console.log("fetching data from netlify function");
+
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
             headers: {
@@ -32,8 +32,6 @@ const PaymentForm = () => {
         }).then((res) => res.json());
 
         const { paymentIntent: { client_secret } } = response;
-
-        console.log(client_secret);
 
         const paymentResult = await stripe.confirmCardPayment(client_secret, {
             payment_method: {
