@@ -15,6 +15,7 @@ const PaymentForm = () => {
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
     const paymentHandler = async (e) => {
+        console.log(e);
         e.preventDefault();
         if (!stripe || !elements) {
             return;
