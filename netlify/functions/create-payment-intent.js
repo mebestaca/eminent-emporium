@@ -10,6 +10,7 @@ exports.handler = async (event, context) => {
             amount,
             currency: "usd",
             payment_method_types: ["card"],
+            description: "Eminent Emporium"
         });
 
         return {
@@ -17,7 +18,7 @@ exports.handler = async (event, context) => {
             headers: {
                 "Access-Control-Allow-Origin": "*", 
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-              },
+            },
             body: JSON.stringify({ paymentIntent })
         }
     }
