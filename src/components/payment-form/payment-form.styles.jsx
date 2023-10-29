@@ -18,3 +18,7 @@ export const PaymentButton = styled(Button)`
     margin-left: auto;
     margin-top: 30px;
 `;
+
+export const CardNotice = styled.p`
+    color: red;
+`;

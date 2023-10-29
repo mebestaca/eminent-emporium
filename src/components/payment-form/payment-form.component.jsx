@@ -1,10 +1,11 @@
-import { PaymentFormContainer, FormContainer, PaymentButton } from "./payment-form.styles";
+import { PaymentFormContainer, FormContainer, PaymentButton, CardNotice } from "./payment-form.styles";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
+
 
 const PaymentForm = () => {
 
@@ -59,6 +60,7 @@ const PaymentForm = () => {
         <PaymentFormContainer>
             <FormContainer onSubmit={paymentHandler}>
                 <h2>Credit Card Payment:</h2>
+                <CardNotice>Notice: Use card number 4242 4242 4242 4242</CardNotice>
                 <CardElement />
                 <PaymentButton 
                     isLoading={isProcessingPayment} 
