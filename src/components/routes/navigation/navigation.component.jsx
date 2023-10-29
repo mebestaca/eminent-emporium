@@ -5,7 +5,6 @@ import CartIcon from '../../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../../components/cart-dropdown/cart-dropdown.component';
 import { selectCurrentUser } from '../../../store/user/user.selector';
 import { selectIsCartOpen } from '../../../store/cart/cart.selector';
-import EminentLogo from '../../../assets/eminent-logo.png';
 import { signOutUser } from '../../../utils/firebase/firebase.utils';
 
 import {
@@ -13,7 +12,7 @@ import {
   NavLinks,
   NavLink,
   LogoContainer,
-  AppLogo
+  ShopLogo
 } from './navigation.style';
 
 const Navigation = () => {
@@ -24,7 +23,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <AppLogo src={EminentLogo} alt="eminent-logo"/>
+          <ShopLogo className="logo"/>
         </LogoContainer>
 
         <NavLinks>
