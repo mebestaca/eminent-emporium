@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
+import { ReactComponent as Shop } from '../../../assets/shop.svg'; 
 
 export const NavigationContainer = styled.div`
     height: 70px; 
@@ -27,6 +28,7 @@ export const LogoContainer = styled(Link)`
     width: 70px; 
 `;
 
-export const AppLogo = styled.img`
-    height: 100px;
+export const ShopLogo = styled(Shop)`
+    height: 100%; 
+    width: 70px; 
 `;
