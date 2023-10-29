@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-import CategoryPreview from "../../category-preview/category-preview.component"; 
+import CategoryPreview from "../category-preview/category-preview.component"; 
 import { 
     selectCategoriesMap, 
     // selectCategoryIsLoading 
-} from "../../../store/category/category.selector";
+} from "../../store/category/category.selector";
 // import Spinner from "../../spinner/spinner.component";
 
 const CategoriesPreview = () => {

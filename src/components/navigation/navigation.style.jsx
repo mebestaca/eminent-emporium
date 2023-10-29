@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
-import { ReactComponent as Shop } from '../../../assets/shop.svg'; 
+import { ReactComponent as Shop } from '../../assets/shop.svg'; 
 
 export const NavigationContainer = styled.div`
     height: 70px; 
