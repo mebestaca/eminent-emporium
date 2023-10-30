@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
 
 export const ProductCardContainer = styled.div`
-    width: 100%; 
+    min-width: 24%; 
+    width: 250px;
     display: flex; 
     flex-direction: column; 
     height: 350px; 
     align-items: center; 
     position: relative; 
+    margin: 5px 5px;
     
     img { 
         width: 100%; 
@@ -37,10 +39,10 @@ export const ProductCardContainer = styled.div`
 
 export const Footer = styled.div`
     width: 100%; 
-        height: 5%; 
-        display: flex; 
-        justify-content: space-between; 
-        font-size: 18px; 
+    height: 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 18px; 
 `;
 
 export const Name = styled.span`
