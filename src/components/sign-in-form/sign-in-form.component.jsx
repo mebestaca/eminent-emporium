@@ -3,8 +3,7 @@ import { signInEmailAndPassword, signInWithGooglePopUp} from "../../utils/fireba
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { SignInContainer, ButtonsContainer } from "./sign-in-form.style";
-// import { useDispatch } from "react-redux";
-// import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
     email: '',
@@ -14,6 +13,7 @@ const defaultFormFields = {
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
+    const nav = useNavigate();
 
     const submitHandler = async (event) => {
         event.preventDefault();
@@ -21,6 +21,7 @@ const SignInForm = () => {
         try {
             await signInEmailAndPassword(email, password);
             resetFormFields();
+            nav("/");
         }
         catch(error) {
             switch(error ){
