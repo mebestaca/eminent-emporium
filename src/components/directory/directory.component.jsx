@@ -5,31 +5,31 @@ const categories = [
     {
       "id": 1,
       "title": "hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png",
+      "imageUrl": "https://raw.githubusercontent.com/mebestaca/assets-repo/main/eminent-emporium/category-preview/hats-preview.jpg",
       "route" : "shop/hats"
     },
     {
       "id": 2,
       "title": "jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png",
+      "imageUrl": "https://raw.githubusercontent.com/mebestaca/assets-repo/main/eminent-emporium/category-preview/jackets-preview.jpg",
       "route": "shop/jackets"
     },
     {
       "id": 3,
       "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png",
+      "imageUrl": "https://raw.githubusercontent.com/mebestaca/assets-repo/main/eminent-emporium/category-preview/shoes-preview.jpg",
       "route": "shop/sneakers"
     },
     {
       "id": 4,
       "title": "womens",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png",
+      "imageUrl": "https://raw.githubusercontent.com/mebestaca/assets-repo/main/eminent-emporium/category-preview/women-preview.jpg",
       "route": "shop/womens"
     },
     {
       "id": 5,
       "title": "mens",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png",
+      "imageUrl": "https://raw.githubusercontent.com/mebestaca/assets-repo/main/eminent-emporium/category-preview/mens-preview.jpg",
       "route": "shop/mens"
     }
   ];
