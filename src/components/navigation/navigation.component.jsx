@@ -14,6 +14,7 @@ import {
   LogoContainer,
   ShopLogo
 } from './navigation.style';
+// import SHOP_DATA from '../../shop-data';
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -22,10 +23,14 @@ const Navigation = () => {
   return (
     <Fragment>
       <NavigationContainer>
+        {/* <button onClick={ () => {
+          addCollectionAndDocuments('categories', SHOP_DATA);
+          console.log("laoded");
+
+         } }>load</button> */}
         <LogoContainer to='/'>
           <ShopLogo className="logo"/>
         </LogoContainer>
-
         <NavLinks>
           <NavLink to='/shop'>SHOP</NavLink>
           {currentUser ? (
