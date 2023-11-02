@@ -1,9 +1,10 @@
 body {
-  margin: 0;
   padding: 20px 40px;
   font-family: 'Roboto Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
 }
 
 code {
