@@ -9,6 +9,7 @@ An e-commerce website built using react-js framework that utilizes redux/toolkit
  - ReactJS
  - Redux/Redux Toolkit/Saga/Thunk
  - CSS/SASS
+ - Netlify
  - Firebase Firestore
  - Stripe
 
